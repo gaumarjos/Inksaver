@@ -57,6 +57,8 @@ class InkSaver():
 
         # Remove grayish shades
         _, thr_img = cv2.threshold(norm_img, 230, 0, cv2.THRESH_TRUNC)
+
+        # Normalise again
         norm2_img = thr_img.copy()  # Needed for 3.x compatibility
         cv2.normalize(thr_img, norm2_img, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_8UC1)
 
