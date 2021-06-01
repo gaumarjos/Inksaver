@@ -73,17 +73,24 @@ class InkSaver():
         cv2.imshow('Processed', self.processed_img)
 
 
+def wrapper(filename):
+    image = InkSaver(filename)
+    image.process2()
+    image.save()
+
+
 if __name__ == '__main__':
-    path = sys.argv[len(sys.argv)-1]
+    path = sys.argv[len(sys.argv) - 1]
     if os.path.isdir(path):
         for folder, subfolders, files in os.walk(path):
             for file in files:
-                if file.endswith((".jpg", ".JPG")):
+                if file.endswith((".jpg", ".JPG", ".jpeg", ".JPEG")):
                     if not file.endswith("processed.jpg"):
-                        filepath = os.path.join(os.path.abspath(folder), file)
-                        print("Processing {}".format(filepath))
-                        image = InkSaver(filepath)
-                        image.process2()
-                        image.save()
+                        filename = os.path.join(os.path.abspath(folder), file)
+                        print("Processing {}".format(filename))
+                        wrapper(filename)
+
+    elif os.path.isfile(path):
+        wrapper(path)
     else:
-        print("Argument must be a valid directory")
+        print("Argument must be an existing directory or file.")
