@@ -4,4 +4,10 @@ Processes JPG scans to improve readability and save ink when printing them in B&
 
 
 ## Use
+Python
+
 `python main.py <file or directory>`
+
+Dist
+
+`./InkSaver <file or directory>`
