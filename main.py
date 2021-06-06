@@ -6,6 +6,8 @@ import sys
 import cv2
 import numpy as np
 
+SUFFIX = "inksaved"
+
 
 class InkSaver():
 
@@ -23,7 +25,7 @@ class InkSaver():
     def __init__(self, filename):
         self.img = cv2.imread(filename)
         self.processed_img = []
-        self.output_filename = filename[:-4] + "_processed.jpg"
+        self.output_filename = filename[:-4] + "_{}.jpg".format(SUFFIX)
 
     def process1(self):
         print("Processing...")
@@ -87,7 +89,7 @@ if __name__ == '__main__':
         for folder, subfolders, files in os.walk(path):
             for file in files:
                 if file.endswith((".jpg", ".JPG", ".jpeg", ".JPEG")):
-                    if not file.endswith("processed.jpg"):
+                    if not file.endswith("{}.jpg".format(SUFFIX)):
                         filename = os.path.join(os.path.abspath(folder), file)
                         print("Processing {}".format(filename))
                         wrapper(filename)

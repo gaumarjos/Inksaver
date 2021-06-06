@@ -1,2 +1,5 @@
-venv
-
+venv2
+build
+iconified*
+.DS_Store
+__pycache__/
