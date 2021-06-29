@@ -84,6 +84,9 @@ def wrapper(filename):
 
 
 if __name__ == '__main__':
+    for arg in sys.argv:
+        print(arg)
+
     path = sys.argv[len(sys.argv) - 1]
     if os.path.isdir(path):
         for folder, subfolders, files in os.walk(path):
