@@ -1,5 +1,4 @@
-venv2
-build
-iconified*
 .DS_Store
+build/
+.idea/
 __pycache__/
