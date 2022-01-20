@@ -12,7 +12,7 @@ pyinstaller --noconfirm --log-level=ERROR \
     --name InkSaver \
     --add-data InkSaver.png:. \
     --icon InkSaver.png \
-    --paths ~/PycharmProjects/InkSaver/venv2/ \
+    --paths ~/.pyenv/versions/3.6.5/envs/inksaver/lib/python3.6/site-packages/ \
     main.py
 
 # Install
