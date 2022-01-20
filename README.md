@@ -11,3 +11,6 @@ Python
 Dist
 
 `./InkSaver <file or directory>`
+
+## Version
+Developed and tested with Python 3.6.5.
