@@ -1,6 +1,9 @@
-altgraph==0.17
-macholib==1.14
-numpy==1.20.3
-opencv-python==4.5.2.52
-pyinstaller==4.3
-pyinstaller-hooks-contrib==2021.1
+altgraph==0.17.2
+importlib-metadata==4.8.3
+macholib==1.15.2
+numpy==1.19.5
+opencv-python==4.5.5.62
+pyinstaller==4.8
+pyinstaller-hooks-contrib==2021.5
+typing_extensions==4.0.1
+zipp==3.6.0
