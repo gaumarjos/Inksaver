@@ -6,7 +6,7 @@ Processes JPG scans to improve readability and save ink when printing them in B&
 ## Use
 Python
 
-`python main.py <file or directory>`
+`python main.py <file(s) or directory>`
 
 Dist
 

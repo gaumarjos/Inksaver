@@ -6,7 +6,8 @@ import sys
 import cv2
 import numpy as np
 
-SUFFIX = "inksaved"
+PREFIX = "inksaved_"
+SUFFIX = ""
 
 
 class InkSaver:
@@ -25,7 +26,9 @@ class InkSaver:
     def __init__(self, filename):
         self.img = cv2.imread(filename)
         self.processed_img = []
-        self.output_filename = filename[:-4] + "_{}.jpg".format(SUFFIX)
+        self.output_filename = os.path.join(os.path.dirname(filename),
+                                            "{}{}{}.jpg".format(PREFIX, os.path.basename(os.path.splitext(filename)[0]), SUFFIX))
+        print(self.output_filename)
 
     def process1(self):
         print("Processing...")
@@ -84,9 +87,10 @@ def wrapper(filename):
 
 
 if __name__ == '__main__':
-    path = sys.argv[1]
-    if os.path.isdir(path):
-        for folder, subfolders, files in os.walk(path):
+
+    # Is it a folder?
+    if os.path.isdir(sys.argv[1]):
+        for folder, subfolders, files in os.walk(sys.argv[1]):
             for file in files:
                 if file.endswith((".jpg", ".JPG", ".jpeg", ".JPEG")):
                     if not file.endswith("{}.jpg".format(SUFFIX)):
@@ -94,7 +98,8 @@ if __name__ == '__main__':
                         print("Processing {}".format(filename))
                         wrapper(filename)
 
-    elif os.path.isfile(path):
-        wrapper(path)
+    # Assume they're files
     else:
-        print("Argument must be an existing directory or file.")
+        for file in sys.argv[1:]:
+            if os.path.isfile(file):
+                wrapper(file)
