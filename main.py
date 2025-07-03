@@ -10,6 +10,7 @@ from pdf2image import convert_from_path
 PREFIX = "inksaved_"
 SUFFIX = ""
 BLACK_BACKGROUND_TH = 100.0
+VERBOSE = False
 
 
 class InkSaver:
@@ -60,7 +61,8 @@ class InkSaver:
 
         self.processed_img = []
 
-        print(self.output_filename)
+        if VERBOSE:
+            print(self.output_filename)
 
     def process1(self):
         for img in self.img:
@@ -133,7 +135,8 @@ if __name__ == '__main__':
                 if file.endswith((".jpg", ".JPG", ".jpeg", ".JPEG", ".pdf", ".PDF")):
                     if not file.endswith("{}.jpg".format(SUFFIX)):
                         filename = os.path.join(os.path.abspath(folder), file)
-                        print("Processing {}".format(filename))
+                        if VERBOSE:
+                            print("Processing {}".format(filename))
                         wrapper(filename)
 
     # Assume they're files

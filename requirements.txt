@@ -3,6 +3,8 @@ importlib-metadata==4.8.3
 macholib==1.15.2
 numpy==1.19.5
 opencv-python==4.5.5.62
+pdf2image==1.17.0
+Pillow==8.4.0
 pyinstaller==4.8
 pyinstaller-hooks-contrib==2021.5
 typing_extensions==4.0.1
