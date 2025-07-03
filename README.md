@@ -1,6 +1,6 @@
 # InkSaver
 
-Processes JPG scans to improve readability and save ink when printing them in B&W.
+Processes JPG and PDF scans to improve readability and save ink when printing them in B&W.
 
 
 ## Use
